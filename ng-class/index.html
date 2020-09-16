@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" />
+  <title>ng-class directive applied to the table</title>
+</head>
+<body ng-controller="defaultCtrl">
+  <table class="table table-condensed">
+    <thead>
+      <tr>
+        <th>Mountain</th>
+        <th>Metres</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr ng-repeat="m in mountainsList | orderBy:sorting"
+        ng-class="{warning: m.metres<8500, danger: m.metres>8600}">
+        <td>{{m.mountain}}</td>
+        <td>{{m.metres}}</td>
+    </tr>
+  </tbody>
+  </table>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
