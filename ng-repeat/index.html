@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" />
+    <title>ng-repeat</title>
+</head>
+<body ng-controller="defaultCtrl">
+    <table class="table">
+        <tr ng-repeat="mountain in mountainsList" ng-class="{info:$even, danger:$odd}">
+            <td class="col-sm-1">{{$index}}</td>
+            <td class="col-sm-4"  ng-show="!showForms" ng-click="showForms=true">{{mountain.mountain}}</td>
+            <td class="col-sm-4" ng-show="showForms">
+                <input ng-model="mountain.mountain" />
+            </td>
+            <td class="col-sm-4" ng-show="!showForms" ng-click="showForms=true">{{mountain.metres}}</td>
+            <td class=col-sm-3 ng-show="showForms">
+                <input ng-model="mountain.metres" />
+                <a href="#" 
+                    ng-click="saveChanges($index, mountain.mountain, mountain.metres); showForms=false" 
+                    class="glyphicon glyphicon-ok">Zapisz</a>
+            </td>
+            <td class="col-sm-1">
+                <a href="#" ng-click="showForms=true" class="glyphicon glyphicon-pencil"></a>
+            </td>
+            <td class="col-sm-1">
+                <a href="#" ng-show="!$first" ng-click="up($index)" class="glyphicon glyphicon-arrow-up"></a>
+            </td>
+            <td class="col-sm-1">
+                <a href="#" ng-show="!$last" ng-click="down($index)" class="glyphicon glyphicon-arrow-down"></a>
+            </td>
+        </tr>
+    </table>
+    
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+<script src="app.js"></script>    
+</body>
+</html>
