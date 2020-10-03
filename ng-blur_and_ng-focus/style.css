@@ -1,0 +1,7 @@
+input[type="text"].testFocus {
+    background-color: green;
+}
+
+input[type="text"].testBlur {
+    background-color: red;
+}
